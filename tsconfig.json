@@ -16,8 +16,10 @@
     "outDir": "./dist",
     "declarationDir": "./types",
     "declaration": true,
-    "jsx": "react-jsx"
+    "jsx": "react"
   },
-  "include": ["src"],
+  "include": [
+    "src/**/*"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

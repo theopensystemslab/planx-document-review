@@ -7,7 +7,7 @@ const DocumentReview = (props: Props) => (
   <>
     <h1>{"Document Review"}</h1>
     <div className="data">
-      <pre>DATA: {JSON.stringify(props, null, 2)}</pre>
+      <pre>CSV: {JSON.stringify(props, null, 2)}</pre>
     </div>
   </>
 );
