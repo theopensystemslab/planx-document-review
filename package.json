@@ -22,9 +22,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "test": "vitest",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "ci": "pnpm test && pnpm build",
+    "ci": "pnpm lint && pnpm build",
     "build": "tsc && vite build"
   },
   "dependencies": {
@@ -37,8 +36,7 @@
     "@mui/x-data-grid": "^5.17.11",
     "@opensystemslab/map": "^0.6.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "vitest": "^0.25.2"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
