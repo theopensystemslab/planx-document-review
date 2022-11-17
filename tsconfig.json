@@ -13,13 +13,11 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "outDir": "./dist",
-    "declarationDir": "./types",
     "declaration": true,
+    "declarationDir": "./types",
+    "outDir": "./dist",
     "jsx": "react"
   },
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

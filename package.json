@@ -8,7 +8,8 @@
     "url": "https://github.com/theopensystemslab/planx-document-review.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "main": "./dist/document-review.cjs",
   "module": "./dist/document-review.js",
