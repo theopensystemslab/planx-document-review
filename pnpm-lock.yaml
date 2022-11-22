@@ -20,6 +20,7 @@ specifiers:
   eslint: ^8.27.0
   eslint-config-prettier: ^8.5.0
   eslint-config-react-app: ^7.0.1
+  lodash.startcase: ^4.4.0
   prettier: ^2.7.1
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -35,6 +36,7 @@ dependencies:
   '@mui/system': 5.10.14_v64nlmo6pkqfmpmxge6otzlg54
   '@mui/x-data-grid': 5.17.11_uie4kjmcq2cmfo4b4hzzhkqfwa
   '@opensystemslab/map': 0.6.1
+  lodash.startcase: 4.4.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -3599,6 +3601,10 @@ packages:
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
+
+  /lodash.startcase/4.4.0:
+    resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
+    dev: false
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
