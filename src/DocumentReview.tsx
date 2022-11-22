@@ -6,14 +6,9 @@ import Stack from "@mui/material/Stack";
 
 export default function DocumentReview(props: any) {
   return (
-    <Box sx={{ width: "100%" }}>
-      <Stack spacing={2} alignItems="center" sx={{ padding: "1em" }}>
-        <h1>Document Review ...</h1>
-        <h2>Application id ...</h2>
-        <Map />
-        <br />
-        <DataTable />
-      </Stack>
-    </Box>
+    <div>
+      <p>Payload:</p>
+      <pre>{JSON.stringify(props, null, 2)}</pre>
+    </div>
   );
 }
