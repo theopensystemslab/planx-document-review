@@ -5,13 +5,17 @@ import Answer from "./Answer";
 import Grid from "@mui/material/Grid";
 import { Global, css } from "@emotion/react";
 
-export default function DocumentReview(props: {
+type DocumentReviewProps = React.PropsWithChildren<{
   geojson: object;
-  csv: object;
-  files: object;
-}) {
+  csv: QuestionAnswers;
+  files: FileInfo[];
+}>;
+
+export default function DocumentReview(
+  props: DocumentReviewProps
+): React.ReactElement<DocumentReviewProps, any> {
   return (
-    <>
+    <React.Fragment>
       <Styles />
       <Grid
         container
@@ -41,7 +45,7 @@ export default function DocumentReview(props: {
           <FileView files={props.files} />
         </Grid>
       </Grid>
-    </>
+    </React.Fragment>
   );
 }
 
@@ -49,6 +53,7 @@ function Styles() {
   return (
     <Global
       styles={css`
+        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
         body {
           font-family: "Inter", arial, sans-serif;
           -webkit-font-smoothing: antialiased;
@@ -56,35 +61,49 @@ function Styles() {
           font-size: 18px;
           font-size: 1.125rem;
         }
-        h1 {
-          font-size: 1.2em;
-        }
       `}
     />
   );
 }
 
 function MapView(props: { geojson: object }) {
-  return props.geojson ? (
-    <Map boundary={props.geojson} />
-  ) : (
-    <p>Boundary map not available</p>
+  return (
+    <React.Fragment>
+      {props.geojson ? (
+        <Map boundary={props.geojson} />
+      ) : (
+        <p>Boundary map not available</p>
+      )}{" "}
+    </React.Fragment>
   );
 }
 
-function AnswerView(props: { csv: { question: string; responses: any[] }[] }) {
-  return checkAnswerProps(props) ? (
-    props.csv.map((entry, index) => (
-      <Answer key={index} title={entry.question} details={entry.responses} />
-    ))
-  ) : (
-    <p>Data not available</p>
+type QuestionAnswers = React.PropsWithChildren<
+  {
+    question: string;
+    responses: any[];
+  }[]
+>;
+
+function AnswerView(props: { csv: QuestionAnswers }) {
+  return (
+    <React.Fragment>
+      {checkAnswerProps(props) ? (
+        props.csv.map((entry, index) => (
+          <Answer
+            key={index}
+            title={entry.question}
+            details={entry.responses}
+          />
+        ))
+      ) : (
+        <p>Data not available</p>
+      )}{" "}
+    </React.Fragment>
   );
 }
 
-function checkAnswerProps(props: {
-  csv: { question: string; responses: any[] }[];
-}): boolean {
+function checkAnswerProps(props: { csv: QuestionAnswers }): boolean {
   return (
     props.csv &&
     props.csv.every((entry) => {
@@ -95,22 +114,31 @@ function checkAnswerProps(props: {
   );
 }
 
-function FileView(props: {
-  files: { filename: string; tags: string[] }[];
-}): React.Component {
+type FileInfo = {
+  filename: string;
+  tags: string[];
+};
+
+function FileView(props: { files: FileInfo[] }) {
   const { files } = props;
-  return checkFileProps(files) ? (
-    files.map((f) => (
-      <Answer key={f.filename} title={f.tags.join(" ")} details={f.filename} />
-    ))
-  ) : (
-    <p>No attached files</p>
+  return (
+    <React.Fragment>
+      {checkFileProps(files) ? (
+        files.map((f) => (
+          <Answer
+            key={f.filename}
+            title={f.tags.join(" ")}
+            details={f.filename}
+          />
+        ))
+      ) : (
+        <p>No attached files</p>
+      )}
+    </React.Fragment>
   );
 }
 
-function checkFileProps(
-  files: { filename: string; tags: string[] }[]
-): boolean {
+function checkFileProps(files: FileInfo[]): boolean {
   return (
     !!files.length &&
     files.every((f) => {

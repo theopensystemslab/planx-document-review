@@ -7,7 +7,12 @@ declare global {
         }
         interface MapProps {
             showNorthArrow: boolean;
+            showScale: boolean;
+            hideResetControl: boolean;
+            geojsonData: string;
         }
     }
 }
-export default function Map(): JSX.Element;
+export default function Map(props: {
+    boundary: object;
+}): JSX.Element;

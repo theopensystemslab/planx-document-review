@@ -4,7 +4,14 @@ import * as React from "react";
 import prettyTitle from "lodash.startcase";
 import styled from "@emotion/styled";
 
-export default function Answer(props: { title: string; details: any }) {
+type AnswerProps = React.PropsWithChildren<{
+  title: string;
+  details: any;
+}>;
+
+export default function Answer(
+  props: AnswerProps
+): React.ReactElement<AnswerProps, any> {
   const Item = styled.div`
     padding: 1em 0;
     border-bottom: 1px solid #00000022;
@@ -36,7 +43,7 @@ export default function Answer(props: { title: string; details: any }) {
   return <p>[error]</p>;
 }
 
-function Details(props: { data: any }) {
+function Details(props: { data: any }): React.ReactElement<any, any> {
   const Empty = styled.span`
     color: #00000033;
   `;
@@ -57,7 +64,7 @@ function Details(props: { data: any }) {
   return <p>{`[error: Unknown detail format for ${typeof data}]`}</p>;
 }
 
-function List(details: Array) {
+function List(details: any[]): React.ReactElement<any, any> {
   const isSingleValueArray =
     Array.isArray(details) &&
     details.length === 1 &&
@@ -81,7 +88,7 @@ function List(details: Array) {
   );
 }
 
-function Tree(details: object) {
+function Tree(details: object): React.ReactElement<any, any> {
   return (
     <ul>
       {Object.keys(details)

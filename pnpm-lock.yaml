@@ -12,6 +12,7 @@ specifiers:
   '@mui/system': ^5.10.14
   '@mui/x-data-grid': ^5.17.11
   '@opensystemslab/map': ^0.6.1
+  '@types/lodash.startcase': ^4.4.7
   '@types/react': ^18.0.25
   '@types/react-dom': ^18.0.9
   '@typescript-eslint/eslint-plugin': ^5.43.0
@@ -36,6 +37,7 @@ dependencies:
   '@mui/system': 5.10.14_v64nlmo6pkqfmpmxge6otzlg54
   '@mui/x-data-grid': 5.17.11_uie4kjmcq2cmfo4b4hzzhkqfwa
   '@opensystemslab/map': 0.6.1
+  '@types/lodash.startcase': 4.4.7
   lodash.startcase: 4.4.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -1895,6 +1897,16 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
+
+  /@types/lodash.startcase/4.4.7:
+    resolution: {integrity: sha512-6v8FVOcfxdomO1Vammc1Zsah7/4aif/Lx16oQQ0WZmKVGF/Yf5c5m68LqI/ELOhKaKUr8KfnDdKrytdrThoRQw==}
+    dependencies:
+      '@types/lodash': 4.14.189
+    dev: false
+
+  /@types/lodash/4.14.189:
+    resolution: {integrity: sha512-kb9/98N6X8gyME9Cf7YaqIMvYGnBSWqEci6tiettE6iJWH1XdJz/PO8LB0GtLCG7x8dU3KWhZT+lA1a35127tA==}
+    dev: false
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
