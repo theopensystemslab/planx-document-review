@@ -24,5 +24,10 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ["dist/**", "types/**", "node_modules/**"],
+  ignorePatterns: [
+    "dist/**",
+    "types/**",
+    "node_modules/**",
+    "src/**/*.test.ts",
+  ],
 };

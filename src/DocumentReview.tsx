@@ -10,7 +10,7 @@ type DocumentReviewProps = React.PropsWithChildren<{
   csv: QuestionAnswer[];
 }>;
 
-export default function DocumentReview(
+export function DocumentReview(
   props: DocumentReviewProps
 ): React.ReactElement<DocumentReviewProps, any> {
   return (
