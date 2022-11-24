@@ -22,7 +22,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "test": "vitest --dir src --dom",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
     "ci": "pnpm lint && pnpm build",
     "build": "tsc && vite build"
   },
@@ -52,9 +53,11 @@
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
+    "happy-dom": "^7.7.0",
     "prettier": "^2.7.1",
     "typescript": "^4.9.3",
-    "vite": "^3.2.4"
+    "vite": "^3.2.4",
+    "vitest": "^0.25.3"
   },
   "browserslist": {
     "production": [

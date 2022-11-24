@@ -7,7 +7,7 @@ import { Global, css } from "@emotion/react";
 
 type DocumentReviewProps = React.PropsWithChildren<{
   geojson: object;
-  csv: QuestionAnswers;
+  csv: QuestionAnswer[];
   files: FileInfo[];
 }>;
 
@@ -53,7 +53,7 @@ function Styles() {
   return (
     <Global
       styles={css`
-        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+        @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
         body {
           font-family: "Inter", arial, sans-serif;
           -webkit-font-smoothing: antialiased;
@@ -78,18 +78,17 @@ function MapView(props: { geojson: object }) {
   );
 }
 
-type QuestionAnswers = React.PropsWithChildren<
-  {
-    question: string;
-    responses: any[];
-  }[]
->;
+type QuestionAnswer = {
+  question: string;
+  responses: any[];
+};
 
-function AnswerView(props: { csv: QuestionAnswers }) {
+function AnswerView(props: { csv: QuestionAnswer[] }) {
+  const { csv: answers } = props;
   return (
     <React.Fragment>
-      {checkAnswerProps(props) ? (
-        props.csv.map((entry, index) => (
+      {checkAnswerProps(answers) ? (
+        answers.map((entry, index) => (
           <Answer
             key={index}
             title={entry.question}
@@ -103,10 +102,10 @@ function AnswerView(props: { csv: QuestionAnswers }) {
   );
 }
 
-function checkAnswerProps(props: { csv: QuestionAnswers }): boolean {
+export function checkAnswerProps(props: QuestionAnswer[]): boolean {
   return (
-    props.csv &&
-    props.csv.every((entry) => {
+    props &&
+    props.every((entry) => {
       return (
         Object.hasOwn(entry, "question") && Object.hasOwn(entry, "responses")
       );
@@ -138,7 +137,7 @@ function FileView(props: { files: FileInfo[] }) {
   );
 }
 
-function checkFileProps(files: FileInfo[]): boolean {
+export function checkFileProps(files: FileInfo[]): boolean {
   return (
     !!files.length &&
     files.every((f) => {
