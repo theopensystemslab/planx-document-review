@@ -75,7 +75,7 @@ function MapView(props: { geojson: object }) {
 
 type QuestionAnswer = {
   question: string;
-  responses: any[];
+  responses: any;
 };
 
 function AnswerView(props: { csv: QuestionAnswer[] }) {
@@ -87,6 +87,7 @@ function AnswerView(props: { csv: QuestionAnswer[] }) {
           <Answer
             key={index}
             title={entry.question}
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             details={entry.responses}
           />
         ))

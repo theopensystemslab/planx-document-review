@@ -1,16 +1,12 @@
 import * as React from "react";
 type DocumentReviewProps = React.PropsWithChildren<{
     geojson: object;
-    csv: QuestionAnswers;
-    files: FileInfo[];
+    csv: QuestionAnswer[];
 }>;
 export default function DocumentReview(props: DocumentReviewProps): React.ReactElement<DocumentReviewProps, any>;
-type QuestionAnswers = React.PropsWithChildren<{
+type QuestionAnswer = {
     question: string;
-    responses: any[];
-}[]>;
-type FileInfo = {
-    filename: string;
-    tags: string[];
+    responses: any;
 };
+export declare function checkAnswerProps(props: QuestionAnswer[]): boolean;
 export {};

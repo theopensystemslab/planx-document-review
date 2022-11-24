@@ -8,7 +8,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <DocumentReview
       csv={example.csv}
       geojson={example.geojson}
-      files={example.files}
     />
   </React.StrictMode>
 );

@@ -10,12 +10,4 @@ test("checkAnswerProps", () => {
       },
     ])
   ).toBe(true);
-
-  expect(
-    checkAnswerProps([
-      {
-        question: "really?",
-      },
-    ])
-  ).toBe(false);
 });

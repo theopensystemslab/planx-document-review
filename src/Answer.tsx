@@ -14,7 +14,7 @@ export default function Answer(
 ): React.ReactElement<AnswerProps, any> {
   const Item = styled.div`
     padding: 1em 0;
-    border-bottom: 1px solid #00000022;
+    border-top: 1px solid #00000022;
     page-break-inside: avoid;
   `;
 
@@ -48,8 +48,14 @@ function Details(props: { data: any }): React.ReactElement<any, any> {
     color: #00000033;
   `;
   const { data } = props;
-  if (!data) {
+  if (data === null) {
+    return <Empty>[none]</Empty>;
+  }
+  if (data === undefined) {
     return <Empty>[empty]</Empty>;
+  }
+  if (typeof data === "boolean") {
+    return <span>{data ? "true" : "false"}</span>;
   }
   if (typeof data === "string" || typeof data === "number") {
     return <span>{data}</span>;
@@ -74,6 +80,7 @@ function List(details: any[]): React.ReactElement<any, any> {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     return <Details data={details[0]["value"]} />;
   }
+
   return (
     <ul>
       {
