@@ -24,7 +24,7 @@
     "dev": "vite",
     "test": "vitest --dir src --dom",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "ci": "pnpm lint && pnpm build",
+    "ci": "pnpm lint && pnpm test && pnpm build",
     "build": "tsc && vite build"
   },
   "dependencies": {
