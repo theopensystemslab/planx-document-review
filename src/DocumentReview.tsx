@@ -8,7 +8,6 @@ import { Global, css } from "@emotion/react";
 type DocumentReviewProps = React.PropsWithChildren<{
   geojson: object;
   csv: QuestionAnswer[];
-  files: FileInfo[];
 }>;
 
 export default function DocumentReview(
@@ -39,10 +38,6 @@ export default function DocumentReview(
         <Grid item xs={12} md={6} sx={{ paddingTop: 0 }}>
           <h2>Data</h2>
           <AnswerView csv={props.csv} />
-        </Grid>
-        <Grid item xs={12}>
-          <h2>Files</h2>
-          <FileView files={props.files} />
         </Grid>
       </Grid>
     </React.Fragment>
@@ -109,39 +104,6 @@ export function checkAnswerProps(props: QuestionAnswer[]): boolean {
       return (
         Object.hasOwn(entry, "question") && Object.hasOwn(entry, "responses")
       );
-    })
-  );
-}
-
-type FileInfo = {
-  filename: string;
-  tags: string[];
-};
-
-function FileView(props: { files: FileInfo[] }) {
-  const { files } = props;
-  return (
-    <React.Fragment>
-      {checkFileProps(files) ? (
-        files.map((f) => (
-          <Answer
-            key={f.filename}
-            title={f.tags.join(" ")}
-            details={f.filename}
-          />
-        ))
-      ) : (
-        <p>No attached files</p>
-      )}
-    </React.Fragment>
-  );
-}
-
-export function checkFileProps(files: FileInfo[]): boolean {
-  return (
-    !!files.length &&
-    files.every((f) => {
-      return Object.hasOwn(f, "filename") && Object.hasOwn(f, "tags");
     })
   );
 }
