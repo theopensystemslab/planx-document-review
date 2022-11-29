@@ -4,13 +4,14 @@ import Map from "./Map";
 import Answer from "./Answer";
 import Grid from "@mui/material/Grid";
 import { Global, css } from "@emotion/react";
+import { checkAnswerProps } from "./helpers";
 
-type DocumentReviewProps = React.PropsWithChildren<{
+export type DocumentReviewProps = React.PropsWithChildren<{
   geojson: object;
   csv: QuestionAnswer[];
 }>;
 
-export function DocumentReview(
+export default function DocumentReview(
   props: DocumentReviewProps
 ): React.ReactElement<DocumentReviewProps, any> {
   return (
@@ -73,7 +74,7 @@ function MapView(props: { geojson: object }) {
   );
 }
 
-type QuestionAnswer = {
+export type QuestionAnswer = {
   question: string;
   responses: any;
 };
@@ -95,16 +96,5 @@ function AnswerView(props: { csv: QuestionAnswer[] }) {
         <p>Data not available</p>
       )}{" "}
     </React.Fragment>
-  );
-}
-
-export function checkAnswerProps(props: QuestionAnswer[]): boolean {
-  return (
-    props &&
-    props.every((entry) => {
-      return (
-        Object.hasOwn(entry, "question") && Object.hasOwn(entry, "responses")
-      );
-    })
   );
 }

@@ -25,8 +25,7 @@
     "test": "vitest --run --dir src --dom",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "ci": "pnpm lint && pnpm test && pnpm build",
-    "build": "tsc && vite build",
-    "postinstall": "pnpm i vite && pnpm build"
+    "build": "tsc && vite build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
