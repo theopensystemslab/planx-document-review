@@ -3,15 +3,19 @@ import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [
-    react(),
-  ],
+  plugins: [react()],
   build: {
     target: "node16",
+    ssr: true,
     lib: {
-      entry: resolve(__dirname, "src/DocumentReview.tsx"),
       name: "DocumentReview",
       fileName: "document-review",
+      entry: resolve(__dirname, "src/DocumentReview.tsx"),
     },
+  },
+  ssr: {
+    target: "node",
+    noExternal: true,
+    external: ["react", "react-dom"],
   },
 });
