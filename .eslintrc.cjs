@@ -29,5 +29,6 @@ module.exports = {
     "types/**",
     "node_modules/**",
     "src/**/*.test.ts",
+    "src/**/*.test.tsx",
   ],
 };

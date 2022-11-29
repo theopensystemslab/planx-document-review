@@ -1,9 +1,8 @@
 /* eslint @typescript-eslint/no-explicit-any: "off" */
 import * as React from "react";
-import Map from "./Map";
 import Answer from "./Answer";
 import Grid from "@mui/material/Grid";
-//import { Global, css } from "@emotion/react";
+import { Global, css } from "@emotion/react";
 import { checkAnswerProps } from "./helpers";
 
 export type DocumentReviewProps = React.PropsWithChildren<{
@@ -16,7 +15,7 @@ export default function DocumentReview(
 ): React.ReactElement<DocumentReviewProps, any> {
   return (
     <React.Fragment>
-      {/* <Styles /> */}
+      <Styles />
       <Grid
         container
         spacing={2}
@@ -32,11 +31,7 @@ export default function DocumentReview(
         <Grid item xs={12}>
           <h1>Review Document</h1>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <h2>Boundary</h2>
-          <MapView geojson={props.geojson} />
-        </Grid>
-        <Grid item xs={12} md={6} sx={{ paddingTop: 0 }}>
+        <Grid item xs={12} sx={{ paddingTop: 0 }}>
           <h2>Data</h2>
           <AnswerView csv={props.csv} />
         </Grid>
@@ -45,32 +40,20 @@ export default function DocumentReview(
   );
 }
 
-//function Styles() {
-//  return (
-//    <Global
-//      styles={css`
-//        @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-//        body {
-//          font-family: "Inter", arial, sans-serif;
-//          -webkit-font-smoothing: antialiased;
-//          -moz-osx-font-smoothing: grayscale;
-//          font-size: 18px;
-//          font-size: 1.125rem;
-//        }
-//      `}
-//    />
-//  );
-//}
-
-function MapView(props: { geojson: object }) {
+function Styles() {
   return (
-    <React.Fragment>
-      {props.geojson ? (
-        <Map boundary={props.geojson} />
-      ) : (
-        <p>Boundary map not available</p>
-      )}{" "}
-    </React.Fragment>
+    <Global
+      styles={css`
+        @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+        body {
+          font-family: "Inter", arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          font-size: 18px;
+          font-size: 1.125rem;
+        }
+      `}
+    />
   );
 }
 

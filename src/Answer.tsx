@@ -47,6 +47,7 @@ function Details(props: { data: any }): React.ReactElement<any, any> {
   const Empty = styled.span`
     color: #00000033;
   `;
+
   const { data } = props;
   if (data === null) {
     return <Empty>[none]</Empty>;
