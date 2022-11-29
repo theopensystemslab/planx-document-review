@@ -19,7 +19,9 @@
     "emitDeclarationOnly": true,
     "declarationDir": "./types"
   },
-  "include": ["src"],
+  "include": [
+    "src"
+  ],
   "exclude": [
     "src/**/*.test.ts"
   ],
