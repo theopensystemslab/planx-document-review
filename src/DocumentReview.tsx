@@ -3,7 +3,7 @@ import * as React from "react";
 import Map from "./Map";
 import Answer from "./Answer";
 import Grid from "@mui/material/Grid";
-import { Global, css } from "@emotion/react";
+//import { Global, css } from "@emotion/react";
 import { checkAnswerProps } from "./helpers";
 
 export type DocumentReviewProps = React.PropsWithChildren<{
@@ -16,7 +16,7 @@ export default function DocumentReview(
 ): React.ReactElement<DocumentReviewProps, any> {
   return (
     <React.Fragment>
-      <Styles />
+      {/* <Styles /> */}
       <Grid
         container
         spacing={2}
@@ -45,22 +45,22 @@ export default function DocumentReview(
   );
 }
 
-function Styles() {
-  return (
-    <Global
-      styles={css`
-        @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-        body {
-          font-family: "Inter", arial, sans-serif;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-          font-size: 18px;
-          font-size: 1.125rem;
-        }
-      `}
-    />
-  );
-}
+//function Styles() {
+//  return (
+//    <Global
+//      styles={css`
+//        @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+//        body {
+//          font-family: "Inter", arial, sans-serif;
+//          -webkit-font-smoothing: antialiased;
+//          -moz-osx-font-smoothing: grayscale;
+//          font-size: 18px;
+//          font-size: 1.125rem;
+//        }
+//      `}
+//    />
+//  );
+//}
 
 function MapView(props: { geojson: object }) {
   return (
