@@ -2,6 +2,7 @@
 import * as React from "react";
 import Answer from "./Answer";
 import Grid from "@mui/material/Grid";
+import Map from "./Map";
 import { Global, css } from "@emotion/react";
 import { checkAnswerProps } from "./helpers";
 
@@ -31,7 +32,11 @@ export default function DocumentReview(
         <Grid item xs={12}>
           <h1>Review Document</h1>
         </Grid>
-        <Grid item xs={12} sx={{ paddingTop: 0 }}>
+        <Grid item xs={12} md={6}>
+          <h2>Boundary</h2>
+          <MapView geojson={props.geojson} />
+        </Grid>
+        <Grid item xs={12} md={6} sx={{ paddingTop: 0 }}>
           <h2>Data</h2>
           <AnswerView csv={props.csv} />
         </Grid>
@@ -77,6 +82,18 @@ function AnswerView(props: { csv: QuestionAnswer[] }) {
         ))
       ) : (
         <p>Data not available</p>
+      )}{" "}
+    </React.Fragment>
+  );
+}
+
+function MapView(props: { geojson: object }) {
+  return (
+    <React.Fragment>
+      {props.geojson ? (
+        <Map boundary={props.geojson} />
+      ) : (
+        <p>Boundary map not available</p>
       )}{" "}
     </React.Fragment>
   );
