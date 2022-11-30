@@ -15,7 +15,7 @@ export default function Answer(
   const Item = styled.div`
     padding: 1em 0;
     border-top: 1px solid #00000022;
-    page-break-inside: avoid;
+    break-inside: avoid;
   `;
 
   const Title = styled.p`
