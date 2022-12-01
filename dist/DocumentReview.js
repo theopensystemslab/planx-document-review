@@ -2651,9 +2651,14 @@ function Details(props) {
       children: data ? "true" : "false"
     });
   }
-  if (typeof data === "string" || typeof data === "number") {
+  if (typeof data === "number") {
     return /* @__PURE__ */ jsx("span", {
       children: data
+    });
+  }
+  if (typeof data === "string") {
+    return /* @__PURE__ */ jsx("span", {
+      children: decodeURI(data)
     });
   }
   if (Array.isArray(data)) {
@@ -2667,11 +2672,18 @@ function Details(props) {
   });
 }
 function List(details) {
-  const isSingleValueArray = Array.isArray(details) && details.length === 1 && Object.hasOwn(details[0], "value");
-  if (isSingleValueArray) {
+  if (isListOfNumbersOrStrings(details)) {
     return /* @__PURE__ */ jsx(Details, {
-      data: details[0]["value"]
+      data: `[${details.join(", ")}]`
     });
+  }
+  if (isListOfObjectsWithOneKey(details, "value")) {
+    if (details.length === 1) {
+      return /* @__PURE__ */ jsx(Details, {
+        data: details[0]["value"]
+      });
+    }
+    details = details.map((d) => d["value"]);
   }
   return /* @__PURE__ */ jsx("ul", {
     children: details.map((item) => /* @__PURE__ */ jsx("li", {
@@ -2691,6 +2703,14 @@ function Tree(details) {
       })]
     }, key))
   });
+}
+function isListOfNumbersOrStrings(list) {
+  return list.every((d) => typeof d === "number" || typeof d === "string");
+}
+function isListOfObjectsWithOneKey(list, key) {
+  return list.every(
+    (d) => typeof d === "object" && Object.keys(d).every((k) => k === key)
+  );
 }
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null)
