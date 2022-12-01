@@ -13,11 +13,6 @@ export default defineConfig({
       fileName: "document-review",
       entry: resolve(__dirname, "src/DocumentReview.tsx"),
     },
-    rollupOptions: {
-      output: {
-        intro: shims,
-      },
-    },
   },
   ssr: {
     target: "node",

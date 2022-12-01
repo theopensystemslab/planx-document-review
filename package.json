@@ -1,7 +1,7 @@
 {
   "name": "@opensystemslab/planx-document-review",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "OGL-UK-3.0",
   "repository": {
     "type": "git",
@@ -32,7 +32,6 @@
     "@emotion/styled": "^11.10.5",
     "@lit-labs/ssr": "^2.2.3",
     "@mui/material": "^5.10.16",
-    "@opensystemslab/map": "^0.6.1",
     "@rollup/plugin-commonjs": "^23.0.3",
     "lodash.startcase": "^4.4.0",
     "react": "^18.2.0",
