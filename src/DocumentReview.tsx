@@ -7,8 +7,8 @@ import { Global, css } from "@emotion/react";
 import { checkAnswerProps } from "./helpers";
 
 export type DocumentReviewProps = React.PropsWithChildren<{
-  geojson: object;
-  csv: QuestionAnswer[];
+  geojson?: object;
+  csv?: QuestionAnswer[];
 }>;
 
 export default function DocumentReview(
@@ -22,7 +22,7 @@ export default function DocumentReview(
         spacing={2}
         direction="row-reverse"
         sx={{
-          justifyContent: "center",
+          justifyContent: "flex-end",
           minWidth: "650px",
           maxWidth: "1400px",
           padding: "0 1em",
@@ -32,14 +32,18 @@ export default function DocumentReview(
         <Grid item xs={12}>
           <h1>Review Document</h1>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <h2>Boundary</h2>
-          <MapView geojson={props.geojson} />
-        </Grid>
-        <Grid item xs={12} md={6} sx={{ paddingTop: 0 }}>
-          <h2>Data</h2>
-          <AnswerView csv={props.csv} />
-        </Grid>
+        {props?.geojson && (
+          <Grid item xs={12} md={6}>
+            <h2>Boundary</h2>
+            <MapView geojson={props.geojson} />
+          </Grid>
+        )}
+        {props?.csv && (
+          <Grid item xs={12} md={6} sx={{ paddingTop: 0 }}>
+            <h2>Data</h2>
+            <AnswerView csv={props.csv} />
+          </Grid>
+        )}
       </Grid>
     </React.Fragment>
   );
