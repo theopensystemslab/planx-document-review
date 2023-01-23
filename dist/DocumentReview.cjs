@@ -2622,6 +2622,18 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   tags.forEach(function(tagName) {
     newStyled[tagName] = newStyled(tagName);
   });
+  function checkAnswerProps(props) {
+    return props && props.every((entry) => {
+      return Object.hasOwn(entry, "question") && Object.hasOwn(entry, "responses");
+    });
+  }
+  function safeDecodeURI(data) {
+    try {
+      return decodeURI(data);
+    } catch (error) {
+      return data;
+    }
+  }
   const jsx = jsxRuntime__namespace.jsx;
   const jsxs = jsxRuntime__namespace.jsxs;
   function Answer(props) {
@@ -2679,7 +2691,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     }
     if (typeof data === "string") {
       return /* @__PURE__ */ jsx("span", {
-        children: decodeURI(data)
+        children: safeDecodeURI(data)
       });
     }
     if (Array.isArray(data)) {
@@ -6274,11 +6286,6 @@ Please use another name.` : formatMuiErrorMessage(18));
       showScale: true,
       hideResetControl: true,
       geojsonData: JSON.stringify(props.boundary)
-    });
-  }
-  function checkAnswerProps(props) {
-    return props && props.every((entry) => {
-      return Object.hasOwn(entry, "question") && Object.hasOwn(entry, "responses");
     });
   }
   function DocumentReview(props) {
