@@ -1,3 +1,5 @@
+*NOTE**: This repository has been archived and replaced by [planx-document-templates](https://github.com/theopensystemslab/planx-document-templates)
+
 # PlanX Document Review
 
 This simple component is to provide a simple visual representation of data from a PlanX submission.
