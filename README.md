@@ -1,4 +1,4 @@
-*NOTE**: This repository has been archived and replaced by [planx-document-templates](https://github.com/theopensystemslab/planx-document-templates)
+**NOTE**: This repository has been archived and replaced by [planx-document-templates](https://github.com/theopensystemslab/planx-document-templates)
 
 # PlanX Document Review
 
